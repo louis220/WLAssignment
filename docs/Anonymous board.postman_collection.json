@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "dcc459c9-9d3f-4ead-8cdb-196844fd817b",
+		"name": "Anonymous board",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14439605"
+	},
+	"item": [
+		{
+			"name": "게시글 목록 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boards"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "검색할제목",
+							"disabled": true
+						},
+						{
+							"key": "writer",
+							"value": "검색할작성자",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "perPage",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"등록용 제목\",\n    \"content\": \"등록용 내용\",\n    \"writer\": \"등록테스트작성자\",\n    \"password\": \"비밀번호\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 수정",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"수정 타이틀\",\n    \"content\": \"수정할 내용\",\n    \"password\": \"비밀번호\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "게시글 삭제",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"plainpw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/boards/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boards",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "댓글 목록 조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"대댓글\",\n    \"writer\": \"테스트작성자\",\n    \"boardId\": 6,\n    \"parentId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "댓글 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"대댓글\",\n    \"writer\": \"테스트작성자\",\n    \"boardId\": 6,\n    \"parentId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
